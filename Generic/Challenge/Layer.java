@@ -1,0 +1,23 @@
+package Generic.Challenge;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class Layer<T extends Mappable>{
+    private List<T> layerElements;
+
+    public Layer(T[] layerElements) {
+        this.layerElements = new ArrayList<T>(List.of(layerElements));
+    }
+
+    public void addAll(T... elements){
+        layerElements.addAll(List.of(elements));
+    }
+
+    public void renderLayer(){
+        for(var element : layerElements){
+            element.render();
+        }
+    }
+
+}
